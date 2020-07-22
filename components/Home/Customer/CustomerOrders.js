@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {View, Text, Button} from 'react-native'
 import axios from 'axios'
 import CustomerOrder from './CustomerOrder'
-import {Header, HeaderText, NumColorDark, Section, MenuButton, ButtonText} from './HomeStyles'
+import {Header, HeaderText, NumColorDark, Section, MenuButton, ButtonText} from '../HomeStyles'
 
 function CustomerOrders({username}) {
 

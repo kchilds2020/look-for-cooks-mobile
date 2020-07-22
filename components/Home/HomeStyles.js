@@ -86,3 +86,25 @@ export const MenuButton = styled.TouchableOpacity`
     border-radius: 8px;
 
 `;
+
+export const JobPost = styled.View`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+
+`;
+
+export const Application = styled.View`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+
+`;

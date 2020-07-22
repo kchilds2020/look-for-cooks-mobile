@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import {View,Text, Button} from 'react-native'
-import {CustomerOrderItem, SectionLeft, SectionRight, DeliveredButton, ButtonText, HeaderText, SubHeaderText, OrderItemNum} from './HomeStyles'
+import {CustomerOrderItem, SectionLeft, SectionRight, DeliveredButton, ButtonText, HeaderText, SubHeaderText, OrderItemNum} from '../HomeStyles'
 
 function CustomerOrder({title, qty, pending, completed, orderID, chef}) {
     const [isPending, setPending] = useState(pending)

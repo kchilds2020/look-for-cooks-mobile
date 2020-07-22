@@ -3,8 +3,9 @@ import { View, Text, Button } from 'react-native'
 import Header from '../NavBar/Header'
 import {UserContext} from '../UserContext'
 import styled from 'styled-components'
-import Account from './Account'
-import CustomerOrders from './CustomerOrders'
+import Account from './Cook/Account'
+import CustomerOrders from './Customer/CustomerOrders'
+import JobPosts from './Customer/JobPosts'
 
 const Home = ({navigation}) => {
 
@@ -21,6 +22,7 @@ const Home = ({navigation}) => {
             ) : (
                 <>
                     <CustomerOrders username={user.username}/>
+                    <JobPosts username={user.username}/>
                 </>
             )}
         </View>
