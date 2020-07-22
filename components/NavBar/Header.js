@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Text } from 'react-native'
+import { Button, Text, View } from 'react-native'
 import styled from 'styled-components'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import Hamburger from './Hamburger'
 
 const Header = ({navigation}) => {
     return (
@@ -9,7 +10,7 @@ const Header = ({navigation}) => {
             <Container>
                 <Title>Look for Cooks</Title>
                 <DrawerButton>
-                    <TouchableOpacity onPress = {() => navigation.toggleDrawer()} ><Text>Drawer</Text></TouchableOpacity>
+                    <TouchableOpacity onPress = {() => navigation.toggleDrawer()} ><Hamburger /></TouchableOpacity>
                 </DrawerButton>
             </Container>
         </Overlay>
@@ -42,3 +43,4 @@ const DrawerButton = styled.View`
     margin-right: 20px;
     color: black;
 `;
+

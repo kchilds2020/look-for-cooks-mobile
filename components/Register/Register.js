@@ -3,37 +3,37 @@ import { StyleSheet, Text, View, TextInput, Button} from 'react-native'
 import Header from '../NavBar/Header'
 import styled from 'styled-components'
 import { TouchableOpacity } from 'react-native'
-import axios from 'axios'
 
-const Login = ({navigation}) => {
+const Register = ({navigation}) => {
+
+    const [firstname, setFirstname] = useState('')
+    const [lastname, setLastname] = useState('')
+    const [email, setEmail] = useState('')
+    const [number, setNumber] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-
-    const loginUser = async () => {
-        console.log('clicked function')
-        try {
-            const response = await axios.post('https://lookforcooks.com/login-user', {username: username, password: password})
-            response.data.username === username ? alert('user found!') : alert(response.data)
-        } catch (error) {console.log(error)}
-    }
+    
 
     return (
         <>
             <Header navigation={navigation}/>
             <LoginBody>
                 <LoginContainer>
-                    <ContainerTitle>Login</ContainerTitle>
+                    <ContainerTitle>Register</ContainerTitle>
+                    <Input onChangeText={firstname => setFirstname(firstname)} value={firstname} placeholder='First Name' />
+                    <Input onChangeText={lastname => setLastname(password)} value={lastname} placeholder='Last Name' />
+                    <Input onChangeText={email => setUsername(email)} value={email} placeholder='Email Address' />
+                    <Input onChangeText={number => setPassword(number)} value={number} placeholder='Phone Number' />
                     <Input onChangeText={username => setUsername(username)} value={username} placeholder='Username' />
                     <Input onChangeText={password => setPassword(password)} value={password} placeholder='Password' />
-                    <LoginButton onPress = {loginUser}><ButtonText>Login</ButtonText></LoginButton>
+                    <LoginButton onPress = {() => console.log('clicked')}><ButtonText>Register</ButtonText></LoginButton>
                 </LoginContainer>
             </LoginBody>
         </>
     )
 }
 
-export default Login
-
+export default Register
 
 const LoginBody = styled.View`
     display: flex;
@@ -46,7 +46,7 @@ const LoginContainer = styled.View`
     background-color: white;
     width: 95%;
     font-size: 18px;
-    margin-top: 80px;
+    margin-top: 20px;
     padding: 20px;
     border-radius: 8px;
 `;
@@ -61,7 +61,6 @@ const Input = styled.TextInput`
     margin: 5px auto;
     padding: 10px;
     border-radius: 8px;
-    font-size: 18px;
 `;
 
 const LoginButton = styled.TouchableOpacity`
@@ -80,4 +79,3 @@ const ButtonText = styled.Text`
    font-size: 18px;
    font-weight: bold;
 `;
-
