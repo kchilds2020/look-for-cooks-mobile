@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { UserContext } from './components/UserContext';
 
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
@@ -13,25 +14,27 @@ const Drawer = createDrawerNavigator();
 
 const App = () => {
 
-  const [isLoggedIn, setLoggedIn] = useState(false)
+  const [user, setUser] = useState('')
 
   return (
     <Body>
-      <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Login">
-        {isLoggedIn ? (
-          <>
-            <Drawer.Screen name="Home" component={Home} options={{ title: 'Home' }} />
-          </> 
-        ) : (
-          <>
-            <Drawer.Screen name="Login" component={Login} options={{ title: 'Login' }} />
-            <Drawer.Screen name="Register" component={Register} options={{ title: 'Register' }} />
-          </>
-        )}
-         
-        </Drawer.Navigator>
-      </NavigationContainer>
+      <UserContext.Provider value={{user, setUser}}>
+        <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Login">
+          {user ? (
+            <>
+              <Drawer.Screen name="Home" component={Home} options={{ title: 'Home' }} />
+            </> 
+          ) : (
+            <>
+              <Drawer.Screen name="Login" component={Login} options={{ title: 'Login' }} />
+              <Drawer.Screen name="Register" component={Register} options={{ title: 'Register' }} />
+            </>
+          )}
+          
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </UserContext.Provider>
     </Body>
   );
 };

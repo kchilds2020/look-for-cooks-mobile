@@ -1,11 +1,15 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { StyleSheet, Text, View, TextInput, Button} from 'react-native'
 import Header from '../NavBar/Header'
 import styled from 'styled-components'
 import { TouchableOpacity } from 'react-native'
 import axios from 'axios'
+import {UserContext} from '../UserContext'
 
 const Login = ({navigation}) => {
+    let {user, setUser} = useContext(UserContext)
+    console.log('HOME USER CONTEXT', user)
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -13,7 +17,7 @@ const Login = ({navigation}) => {
         console.log('clicked function')
         try {
             const response = await axios.post('https://lookforcooks.com/login-user', {username: username, password: password})
-            response.data.username === username ? alert('user found!') : alert(response.data)
+            response.data.username === username ? setUser(response.data) : alert(response.data)
         } catch (error) {console.log(error)}
     }
 
