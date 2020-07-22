@@ -82,7 +82,7 @@ export const MenuButton = styled.TouchableOpacity`
     width: 95%;
     background-color: #007bff;
     padding: 10px;
-    margin: 0px auto;
+    margin: 10px auto;
     border-radius: 8px;
 
 `;

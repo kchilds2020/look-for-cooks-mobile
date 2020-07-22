@@ -26,9 +26,9 @@ function CustomerOrders({username}) {
             <Header><HeaderText><NumColorDark>{orders.length}</NumColorDark> Open Orders</HeaderText></Header> 
                 {orders.length > 0 ? orders.map((element, index) => 
                 <CustomerOrder key = {index} pending={element.pending} completed = {element.completed} title={element.menuItemTitle} qty={element.qty} orderID = {element._id} chef={element.chefUsername}/>) : <></>} 
-                    
+                <MenuButton><ButtonText>Find Food Near Me</ButtonText></MenuButton>
         </Section>
-        <MenuButton><ButtonText>Find Food Near Me</ButtonText></MenuButton>
+        
         </>
         
     )

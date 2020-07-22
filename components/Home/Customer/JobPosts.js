@@ -73,8 +73,9 @@ function JobPosts({username}) {
                 <Header><HeaderText><NumColorDark>{myPosts.length}</NumColorDark> Posted Jobs</HeaderText></Header>
                 {myPosts.length > 0 ? myPosts.map((element,index) => 
                     <HomeJobPost key={index} element= {element}/>) : <></>}
+                    <MenuButton><ButtonText>Create Job Post</ButtonText></MenuButton>
             </Section>   
-            <MenuButton><ButtonText>Create Job Post</ButtonText></MenuButton>
+            
             {/* <Button variant="info" onClick={() => setVisibility(true)}style ={{marginTop: '5px'}} block>Create a Post</Button>
             {visible ? <><JobForm handleSubmit={handleSubmit} cancelPost={cancelPost} setDate={setDate} setDescription ={setDescription} setSummary={setSummary} setLocation={setLocation} setPeopleAmount={setPeopleAmount} setPricePerPerson={setPricePerPerson}/><Overlay setVisibility={setVisibility}/></> : <></>} */}
         </>

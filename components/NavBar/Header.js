@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Text, View } from 'react-native'
+import { Button, Text, View, Image } from 'react-native'
 import styled from 'styled-components'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Hamburger from './Hamburger'
@@ -8,7 +8,7 @@ const Header = ({navigation}) => {
     return (
         <Overlay >
             <Container>
-                <Title>Look for Cooks</Title>
+                <Logo source={require('../../images/hat.png')} />
                 <DrawerButton>
                     <TouchableOpacity onPress = {() => navigation.toggleDrawer()} ><Hamburger /></TouchableOpacity>
                 </DrawerButton>
@@ -44,3 +44,8 @@ const DrawerButton = styled.View`
     color: black;
 `;
 
+const Logo = styled.Image`
+    width: 55px;
+    height: 50px;
+    margin: 20px;
+`;

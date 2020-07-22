@@ -8,6 +8,8 @@ import { UserContext } from './components/UserContext';
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
+import Cooks from './components/Cooks/Cooks'
+import Menu from './components/Menu/Menu'
 
 /* const Stack = createStackNavigator(); */
 const Drawer = createDrawerNavigator();
@@ -24,6 +26,8 @@ const App = () => {
           {user ? (
             <>
               <Drawer.Screen name="Home" component={Home} options={{ title: 'Home' }} />
+              <Drawer.Screen name="Menu" component={Menu} options={{ title: 'Menu' }} />
+              <Drawer.Screen name="Cooks" component={Cooks} options={{ title: 'Cooks' }} />
             </> 
           ) : (
             <>
