@@ -10,6 +10,7 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import Cooks from './components/Cooks/Cooks'
 import Menu from './components/Menu/Menu'
+import UserProfile from './components/UserProfile/UserProfile';
 
 /* const Stack = createStackNavigator(); */
 const Drawer = createDrawerNavigator();
@@ -35,6 +36,8 @@ const App = () => {
               <Drawer.Screen name="Register" component={Register} options={{ title: 'Register' }} />
             </>
           )}
+
+          {false ? <Drawer.Screen name="UserProfile" component={UserProfile} options={{ title: 'User Profile' }} /> : <></>}
           
           </Drawer.Navigator>
         </NavigationContainer>

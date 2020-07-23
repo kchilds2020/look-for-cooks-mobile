@@ -2,6 +2,8 @@ import React,{useState, useEffect} from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { set } from 'react-native-reanimated';
 import { MenuPhoto } from './MenuStyles';
+import axios from 'axios'
+import distanceBetween from '../utilities/distanceBetween'
 
 const MenuItem = ({element, user}) => {
 
@@ -16,10 +18,11 @@ const MenuItem = ({element, user}) => {
         const getChef = async () =>{
 
             try {
-                let response = await axios.get(`https://lookforcooks.com/api/get/username/${element.chefUsername}`)
+                let response = await axios.get(`https://lookforcooks.com/api/get/username/${element.username}`)
+                console.log('element.chefUsername', response)
                 let reviewArray = response.data.reviews
-                console.log('RESPOSNE', response)
-                if(response.data.reviews.length > 0){
+                console.log('RESPOSNE', response.data)
+                if(reviewArray){
                     let sum = 0;
                     for(let i = 0; i < reviewArray.length; i++){
                         sum += parseFloat(reviewArray[i].rating)
@@ -56,6 +59,7 @@ const MenuItem = ({element, user}) => {
             <Text>{element.rating === '' ? 'No Rating' : element.rating}</Text>
             <Text>{element.description}</Text>
             <Text>{element.price}</Text>
+            <Text>{distance.toFixed(0)}</Text>
         </View>
     )
 }

@@ -42,7 +42,7 @@ const Menu = ({navigation}) => {
     return (
         <View>
             <Header navigation={navigation}/>
-            {menuArray.length > 0 ? menuArray.map((element, index) => <MenuItem element={element} user={user}/>) : <></>}
+            {menuArray.length > 0 ? menuArray.map((element, index) => <MenuItem key={index} element={element} user={user}/>) : <></>}
         </View>
     )
 }
