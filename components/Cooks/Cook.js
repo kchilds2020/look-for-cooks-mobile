@@ -11,7 +11,7 @@ const Cook = ({element, user, navigation}) => {
             <Text>{element.cookPrice}</Text>
             <Text>{element.cookDescription}</Text>
             <Text>{distanceBetween(element.latitude, element.longitude, user.latitude, user.longitude).toFixed(0)}</Text>
-            <Button title="Click Me" onPress = {() => navigation.navigate('Menu')}/>
+            <Button title="Click Me" onPress = {() => navigation.navigate('UserProfile', {username: element.username})}/>
 
         </View>
     )

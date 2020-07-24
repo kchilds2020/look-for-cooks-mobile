@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 import { UserContext } from './components/UserContext';
 
 import Home from './components/Home/Home'
@@ -10,7 +11,7 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import Cooks from './components/Cooks/Cooks'
 import Menu from './components/Menu/Menu'
-import UserProfile from './components/UserProfile/UserProfile';
+import CookNavigator from './components/Cooks/CookNavigator'
 
 /* const Stack = createStackNavigator(); */
 const Drawer = createDrawerNavigator();
@@ -23,23 +24,20 @@ const App = () => {
     <Body>
       <UserContext.Provider value={{user, setUser}}>
         <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Login">
+          <Drawer.Navigator initialRouteName="DrawerLogin">
           {user ? (
             <>
-              <Drawer.Screen name="Home" component={Home} options={{ title: 'Home' }} />
-              <Drawer.Screen name="Menu" component={Menu} options={{ title: 'Menu' }} />
-              <Drawer.Screen name="Cooks" component={Cooks} options={{ title: 'Cooks' }} />
+              <Drawer.Screen name="DrawerHome" component={Home} options={{ title: 'Home' }} />
+              <Drawer.Screen name="DrawerMenu" component={Menu} options={{ title: 'Menu' }} />
+              <Drawer.Screen name="DrawerCookNavigator" component={CookNavigator} options={{ title: 'Cooks' }} />
             </> 
           ) : (
             <>
-              <Drawer.Screen name="Login" component={Login} options={{ title: 'Login' }} />
-              <Drawer.Screen name="Register" component={Register} options={{ title: 'Register' }} />
+              <Drawer.Screen name="DrawerLogin" component={Login} options={{ title: 'Login' }} />
+              <Drawer.Screen name="DrawerRegister" component={Register} options={{ title: 'Register' }} />
             </>
           )}
-
-          {false ? <Drawer.Screen name="UserProfile" component={UserProfile} options={{ title: 'User Profile' }} /> : <></>}
-          
-          </Drawer.Navigator>
+         </Drawer.Navigator>
         </NavigationContainer>
       </UserContext.Provider>
     </Body>

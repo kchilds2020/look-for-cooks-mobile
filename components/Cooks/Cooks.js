@@ -45,7 +45,6 @@ const Cooks = ({navigation}) => {
     
     return (
         <>
-            <Header navigation={navigation}/>
             <View>
                 {cooksArray.length > 0 ? cooksArray.map((element,index) => <Cook key={index} element={element} user={user} navigation={navigation}/>) : <></>}
             </View>
